@@ -1,0 +1,24 @@
+<div class="container-fluid container-body">
+    <div class="row" style="padding-bottom:10px">
+        <h2>Key Metrics</h2>
+       
+        <div class="col-md-6">
+            <app-yearly-pnl [datasource]="datasource1"></app-yearly-pnl>
+        </div>
+        <div class="col-md-6">
+            <app-cumulative-pnl [datasource]="datasource2"></app-cumulative-pnl>
+        </div>       
+    </div>
+
+    <div class="row">
+        <h2>Historical PnL Trends</h2>
+       
+        <div class="col-md-6">
+            <app-historical-trend></app-historical-trend>
+        </div>       
+        <div class="col-md-6">
+            <app-historical-trend></app-historical-trend>
+        </div>       
+    </div>
+
+</div>
