@@ -1,5 +1,8 @@
 import { ICumulativePnL } from "./ICumulativePnL";
 
-export interface IYearlyPnL extends ICumulativePnL {
-    year:number;    
+export interface IYearlyPnL {
+    commodity: string;
+    model: string;    
+    year:number;
+    cumulativeSum: number;          
 }

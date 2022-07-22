@@ -14,6 +14,8 @@ import { YearlyPnlComponent } from './widgets/yearly-pnl/yearly-pnl.component';
 import { CumulativePnlComponent } from './widgets/cumulative-pnl/cumulative-pnl.component';
 import { HistoricalTrendComponent } from './widgets/historical-trend/historical-trend.component';
 import { HistoryActionsComponent } from './widgets/history-actions/history-actions.component';
+import {matSelectAnimations, MatSelectModule} from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,10 @@ import { HistoryActionsComponent } from './widgets/history-actions/history-actio
     MatTabsModule,
     MatButtonModule, 
     RouterModule,
-    HighchartsChartModule,    
+    HighchartsChartModule, 
+    MatSelectModule,
+    FormsModule,   
+    ReactiveFormsModule    
   ],
   exports:[FooterComponent, HeaderComponent, ToolbarComponent, YearlyPnlComponent, CumulativePnlComponent,HistoricalTrendComponent, HistoryActionsComponent]
    

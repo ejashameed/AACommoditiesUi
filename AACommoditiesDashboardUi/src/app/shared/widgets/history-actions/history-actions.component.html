@@ -1,25 +1,58 @@
 <div class="card card-box">
     <div class="card-body">
         <h3><b>Key Actions</b></h3>
+
+       <div class="row align-items-end">       
+        <div class="col-md-12 align-self-end">
+            <mat-form-field>
+                <mat-label>Select a Commodity</mat-label>
+                <mat-select [(value)]="commoditySelected" (selectionChange)="onCommodityChange($event)">
+                    <mat-option [value]="'All'">All</mat-option>  
+                    <mat-option *ngFor="let commodity of commodityList" [value]="commodity.name">{{commodity.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field >
+                <mat-label>Select a Model</mat-label>
+                <mat-select [(value)]="modelSelected" (selectionChange)="onModelChange($event)">
+                    <mat-option [value]="'All'">All</mat-option>  
+                    <mat-option *ngFor="let model of modelList" [value]="model.name">{{model.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
         
+       </div> 
+        
+       <p>You selected: {{commoditySelected}}</p>
+       
+
         <table class="table table-hover">
 
+            <thead>
+                <th>Date</th>
+                <th>Commodity</th>
+                <th>Model</th>
+                <th>Contract</th>
+                <th>Price</th>
+                <th>Position</th>
+                <th>NewTradeAction</th>
+                <th>Pnl Daily</th>
+            </thead>
             <tbody>
-                <tr *ngFor="let item of datasource; let i = index">                   
+                <tr *ngFor="let item of datasource; let i = index">
+                    <td>{{ item.date | date:"dd/MM/yyyy"}}</td>
                     <td>{{ item.commodity }}</td>
                     <td>{{ item.model }}</td>
-                    <td>{{ item.date }}</td>
                     <td>{{ item.contract }}</td>
                     <td>{{ item.price | currency:'GBP'}}</td>
                     <td>{{ item.position }}</td>
-                    <td>{{ item.tradeAction }}</td>
+                    <td>{{ item.newTradeAction }}</td>
                     <td>{{ item.pnlDaily | currency:'GBP'}}</td>
-                </tr>               
+                </tr>
             </tbody>
 
         </table>
 
     </div>
 </div>
-
-   

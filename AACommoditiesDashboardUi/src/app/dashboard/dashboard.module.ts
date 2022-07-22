@@ -7,6 +7,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import {MatDividerModule} from '@angular/material/divider';
 import { ActionsHistoryComponent } from './components/actions-history/actions-history.component';
 import { MainBoardComponent } from './components/main-board/main-board.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [    
@@ -17,7 +18,8 @@ import { MainBoardComponent } from './components/main-board/main-board.component
     RouterModule,
     DashboardRoutingModule,
     MatDividerModule,
-    SharedModule,    
+    SharedModule, 
+    HttpClientModule   
   ]
 })
 export class DashboardModule { }

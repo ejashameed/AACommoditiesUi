@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     MatButtonModule,
     BrowserAnimationsModule,
     DashboardModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
        
   ],
   providers: [],

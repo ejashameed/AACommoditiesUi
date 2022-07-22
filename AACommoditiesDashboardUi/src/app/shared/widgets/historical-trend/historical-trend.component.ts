@@ -25,20 +25,10 @@ export class HistoricalTrendComponent implements OnInit {
       }
     },
 
-    xAxis: { 
-      type: "datetime",
-      
-      labels: {
-        formatter: (currData) => {
-          const currDate = new Date(currData.value);
-          return currDate.getMonth() + '-' + currDate.getFullYear();
-     },
-      },
-
-      title: {
-        text: 'Period'
-      }
+    xAxis: {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     },
+
     legend: {
       layout: 'vertical',
       align: 'right',
@@ -50,9 +40,21 @@ export class HistoricalTrendComponent implements OnInit {
         name: 'Gold',
         type: 'line',
         data: [
-          ['2018-01-02', 43934],
-          ['2019-03-12', 52503],
-          ['2020-05-18', 57177],
+          [43934],
+          [33934],
+          [63934],
+          [13934],
+        ]
+      },
+
+      {
+        name: 'Oil',
+        type: 'line',
+        data: [
+          [13934],
+          [38934],
+          [43934],
+          [23934],
 
         ]
       },
