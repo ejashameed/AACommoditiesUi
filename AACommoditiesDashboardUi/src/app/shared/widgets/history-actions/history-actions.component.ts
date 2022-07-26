@@ -34,19 +34,19 @@ export class HistoryActionsComponent implements OnInit, OnChanges {
 
   onCommodityChange(selectedItem: any) {    
     this.modelSelected = 'All';
-    if(selectedItem.value == 'All'){
+    if(selectedItem == 'All'){
       this.datasource = this.originalSource;
     }else {
-      this.datasource = this.originalSource.filter(item => item.commodity == selectedItem.value);
+      this.datasource = this.originalSource.filter(item => item.commodity == selectedItem);
     }     
   }
 
   onModelChange(selectedItem: any) {
     this.commoditySelected = 'All';
-    if(selectedItem.value == 'All'){
+    if(selectedItem == 'All'){
       this.datasource = this.originalSource;
     }else {
-      this.datasource = this.originalSource.filter(item => item.model == selectedItem.value);
+      this.datasource = this.originalSource.filter(item => item.model == selectedItem);
     }     
   }
 

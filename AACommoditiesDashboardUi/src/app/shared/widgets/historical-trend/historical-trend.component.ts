@@ -1,19 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { ITrend } from '../../interfaces/ITrend';
 
 @Component({
   selector: 'app-historical-trend',
   templateUrl: './historical-trend.component.html',
   styleUrls: ['./historical-trend.component.scss']
 })
-export class HistoricalTrendComponent implements OnInit {
+export class HistoricalTrendComponent implements OnInit, OnChanges {
+  @Input() seriesData: ITrend[] = [];
+
+  Highcharts: typeof Highcharts = Highcharts;
+  @ViewChild('chart') componentRef: any;
+  chartRef: any;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  Highcharts: typeof Highcharts = Highcharts;
+  ngOnChanges(): void {    
+    let dataArr: any[] = [];
+    this.seriesData.forEach(element => {
+      for (var i = 0; i <= element.data.length; i++) {
+        var obj = element.data[i];
+        if (obj != null) {
+          dataArr[i] = Object.values(obj);
+        }
+      }
+      this.chartRef.addSeries({
+        name: element.name,
+        type: element.type,
+        data: dataArr
+      })
+    });
+  }
+
   chartOptions: Highcharts.Options = {
     title: {
       text: 'Trends'
@@ -35,32 +57,11 @@ export class HistoricalTrendComponent implements OnInit {
       verticalAlign: 'middle'
     },
 
-    series: [
-      {
-        name: 'Gold',
-        type: 'line',
-        data: [
-          [43934],
-          [33934],
-          [63934],
-          [13934],
-        ]
-      },
-
-      {
-        name: 'Oil',
-        type: 'line',
-        data: [
-          [13934],
-          [38934],
-          [43934],
-          [23934],
-
-        ]
-      },
-
-    ],
+    series: [],
 
   };
 
+  chartCallback: Highcharts.ChartCallbackFunction = chart => {
+    this.chartRef = chart;
+  };
 }

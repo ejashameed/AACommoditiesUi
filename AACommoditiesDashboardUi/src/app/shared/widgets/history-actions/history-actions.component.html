@@ -6,7 +6,7 @@
         <div class="col-md-12 align-self-end">
             <mat-form-field>
                 <mat-label>Select a Commodity</mat-label>
-                <mat-select [(value)]="commoditySelected" (selectionChange)="onCommodityChange($event)">
+                <mat-select [(value)]="commoditySelected" (selectionChange)="onCommodityChange($event.value)">
                     <mat-option [value]="'All'">All</mat-option>  
                     <mat-option *ngFor="let commodity of commodityList" [value]="commodity.name">{{commodity.name}}
                     </mat-option>
@@ -15,7 +15,7 @@
 
             <mat-form-field >
                 <mat-label>Select a Model</mat-label>
-                <mat-select [(value)]="modelSelected" (selectionChange)="onModelChange($event)">
+                <mat-select [(value)]="modelSelected" (selectionChange)="onModelChange($event.value)">
                     <mat-option [value]="'All'">All</mat-option>  
                     <mat-option *ngFor="let model of modelList" [value]="model.name">{{model.name}}</mat-option>
                 </mat-select>

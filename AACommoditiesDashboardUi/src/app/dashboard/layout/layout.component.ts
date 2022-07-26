@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  navbartitles :string[] = ['Key Metrics','Actions History','Test'];
-  navbarlinks :string[] = ['','actions',''];
+  navbartitles :string[] = ['Key Metrics','Actions History'];
+  navbarlinks :string[] = ['','actions'];
 
   constructor() { }
   

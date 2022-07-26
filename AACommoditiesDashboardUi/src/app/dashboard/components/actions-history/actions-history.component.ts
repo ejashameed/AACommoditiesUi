@@ -18,21 +18,12 @@ export class ActionsHistoryComponent implements OnInit {
   constructor(private dataService: ApiGetDataService) { }
 
   ngOnInit(): void {
-    this.dataService.getActionsHistory().then(data => this.historyData = data);
-    this.dataService.getAllModels().then(data => this.modelList = data);
-    this.dataService.getAllCommodities().then(data => this.commodityList = data);
+    this.LoadData();
   }
-/*
-  datasource1: IKeyactions[] = [
-    {commodity:'Gold',model:'S&P',date:new Date(),contract:'MAR 18',price: 31495.42,position: 1,tradeAction: 0,pnlDaily: 15183.69},
-    {commodity:'Gold',model:'S&P',date:new Date(),contract:'MAR 18',price: 31495.42,position: 1,tradeAction: 0,pnlDaily: 15183.69},
-    {commodity:'Oil',model:'FTSE',date:new Date(),contract:'MAR 18',price: 31495.42,position: 1,tradeAction: 0,pnlDaily: 15183.69},
-    {commodity:'Gold',model:'S&P',date:new Date(),contract:'MAR 18',price: 31495.42,position: 1,tradeAction: 0,pnlDaily: 15183.69},
-    {commodity:'Oil',model:'S&P',date:new Date(),contract:'MAR 18',price: 31495.42,position: 1,tradeAction: 0, pnlDaily: 15183.69},
-    
-  ]
-*/
 
-
-
+  async LoadData(){
+    this.historyData = await this.dataService.getActionsHistory();
+    this.modelList = await this.dataService.getAllModels();
+    this.commodityList = await this.dataService.getAllCommodities();
+  }
 }
