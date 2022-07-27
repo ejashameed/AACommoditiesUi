@@ -27,8 +27,8 @@ export class ApiGetDataService {
     return await firstValueFrom(this.http.get<ICumulativePnL[]>(this.apiURL + '/commodities/keymetrics/pnl-cumulative'));
   }
 
-  async getPriceTrendData(): Promise<ITrend[]> {
-    let year: number = 2019;
+  async getPriceTrendData(year: number): Promise<ITrend[]> {
+    
     return await firstValueFrom(this.http.get<ITrend[]>(this.apiURL + '/commodities/historical/price-ytd-trends/' + year));
   }
 

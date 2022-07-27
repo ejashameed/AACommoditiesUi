@@ -14,6 +14,7 @@ export class MainBoardComponent implements OnInit {
   pnlData: IYearlyPnL[] = [];
   cumulativePnlData: ICumulativePnL[] = [];
   seriesData: ITrend[] = [];
+  trendYear: number = 2019;
 
   constructor(private dataService: ApiGetDataService) { }
 
@@ -24,6 +25,6 @@ export class MainBoardComponent implements OnInit {
   async LoadData(){
     this.pnlData = await this.dataService.getyearlyPnlData();
     this.cumulativePnlData = await this.dataService.getCumulativePnlData();
-    this.seriesData = await this.dataService.getPriceTrendData();
+    this.seriesData = await this.dataService.getPriceTrendData(this.trendYear);
   }
 }
