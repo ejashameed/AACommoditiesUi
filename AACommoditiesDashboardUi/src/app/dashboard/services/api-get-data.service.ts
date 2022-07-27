@@ -28,7 +28,8 @@ export class ApiGetDataService {
   }
 
   async getPriceTrendData(): Promise<ITrend[]> {
-    return await firstValueFrom(this.http.get<ITrend[]>(this.apiURL + '/commodities/historical/price-ytd-trends'));
+    let year: number = 2019;
+    return await firstValueFrom(this.http.get<ITrend[]>(this.apiURL + '/commodities/historical/price-ytd-trends/' + year));
   }
 
   async getActionsHistory(): Promise<IKeyactions[]> {
