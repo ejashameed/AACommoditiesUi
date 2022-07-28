@@ -1,0 +1,21 @@
+<div class="container-fluid container-body">
+    <div class="row" style="padding-bottom:10px">
+        <h2>Key Metrics</h2>
+       
+        <div class="col-md-6">
+            <app-yearly-pnl [datasource]="pnlData" class="pnl"></app-yearly-pnl>
+        </div>
+        <div class="col-md-6">
+            <app-cumulative-pnl [datasource]="cumulativePnlData" class="cumulativelnl"></app-cumulative-pnl>
+        </div>       
+    </div>
+
+    <div class="row">
+        <h2>Historical Price Trends</h2>
+       
+        <div class="col-md-12">
+            <app-historical-trend [seriesData] = 'seriesData' class="series"></app-historical-trend>
+        </div>                 
+    </div>
+
+</div>

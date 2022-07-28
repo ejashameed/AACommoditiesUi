@@ -1,0 +1,19 @@
+<div class="card card-box">
+    <div class="card-body">
+        <h3><b>Cumulative PnL</b></h3>
+        
+        <table class="table table-hover">
+
+            <tbody>
+                <tr *ngFor="let item of datasource; let i = index">                   
+                    <td>{{ item.commodity }}</td>
+                    <td>{{ item.model }}</td>
+                    <td>{{ item.cumulativeSum | currency:'GBP'}}</td>
+                </tr>               
+            </tbody>
+
+        </table>
+
+
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<nav mat-tab-nav-bar mat-align-tabs="center">
+   <a mat-tab-link *ngFor="let title of navbartitles;let i= index" 
+      [routerLink]="navbarlinks[i]" routerLinkActive>
+      {{title}}
+   </a>
+</nav>
+
+
+<mat-divider></mat-divider>
